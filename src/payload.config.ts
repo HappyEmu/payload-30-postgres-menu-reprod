@@ -114,6 +114,12 @@ export default buildConfig({
       ]
     },
   }),
+  // Step 1: Added localization
+  localization: {
+    locales: ['en', 'de'],
+    defaultLocale: 'en',
+    fallback: true,
+  },
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',

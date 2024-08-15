@@ -26,6 +26,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { link } from '../../fields/link'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -60,6 +61,23 @@ export const Posts: CollectionConfig = {
       tabs: [
         {
           fields: [
+            // Step 3: Added this menu field
+            {
+              name: 'menu',
+              type: 'array',
+              fields: [
+                {
+                  name: 'items',
+                  type: 'array',
+                  fields: [
+                    link({
+                      appearances: false,
+                    }),
+                  ],
+                  maxRows: 6,
+                },
+              ],
+            },
             {
               name: 'content',
               type: 'richText',
